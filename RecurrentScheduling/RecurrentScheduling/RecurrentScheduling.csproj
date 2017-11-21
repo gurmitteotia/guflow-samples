@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}</ProjectGuid>
+    <ProjectGuid>{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Signal</RootNamespace>
-    <AssemblyName>Signal</AssemblyName>
+    <RootNamespace>RecurrentScheduling</RootNamespace>
+    <AssemblyName>RecurrentScheduling</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,8 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities.cs" />
-    <Compile Include="OrderWorkflow.cs" />
+    <Compile Include="ProcessLog.cs" />
+    <Compile Include="ProcessLogWorkflow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

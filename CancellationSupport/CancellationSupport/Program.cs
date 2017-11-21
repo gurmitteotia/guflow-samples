@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Amazon;
 using Guflow;
 
-namespace Signal
+namespace CancellationSupport
 {
     class Program
     {
@@ -15,7 +15,7 @@ namespace Signal
             MainAsync(args).Wait();
         }
 
-        private static async Task MainAsync(string[]args)
+        private static async Task MainAsync(string[] args)
         {
             var domain = new Domain("Test", RegionEndpoint.EUWest1);
             await domain.RegisterWorkflowAsync<OrderWorkflow>();
@@ -23,7 +23,7 @@ namespace Signal
             await domain.RegisterActivityAsync<ChargeCustomer>();
             await domain.RegisterActivityAsync<ShipOrder>();
             using (var hostedActivities = domain.Host(new Type[] { typeof(ReserveOrder), typeof(ChargeCustomer), typeof(ShipOrder) }))
-            using (var hostedWorkflows = domain.Host(new[] {new OrderWorkflow()}))
+            using (var hostedWorkflows = domain.Host(new[] { new OrderWorkflow() }))
             {
                 hostedActivities.StartExecution(new TaskQueue("activity-queue"));
                 hostedWorkflows.StartExecution(new TaskQueue("workflow-queue"));

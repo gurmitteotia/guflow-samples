@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}</ProjectGuid>
+    <ProjectGuid>{BE96BE7B-0C7F-4BB5-B7CF-7B9A04E78DCA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Signal</RootNamespace>
-    <AssemblyName>Signal</AssemblyName>
+    <RootNamespace>CancellationSupport</RootNamespace>
+    <AssemblyName>CancellationSupport</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
