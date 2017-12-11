@@ -3,9 +3,10 @@
 namespace Booking
 {
     /*In following example there two parallel branches which will execute
-     in parallel when workflow is started. However either of them may not start
-     if user has choosed not book it.
-
+     in parallel when workflow is started.
+           
+     Following diagram shows the arrangement in BookingWorkflow
+     
         BookFlight      ChooseFlightMeal
             |                   |
             |                   |
@@ -34,5 +35,11 @@ namespace Booking
             ScheduleActivity<SendConfirmation>().AfterActivity<ChooseFlightMeal>()
                 .AfterActivity<BookDinner>();
         }
+        /* This workflow has three possible execution scenarios:
+         * 1. User has choosen to book both flight and hotel: In this case SendConfirmation activity will be scheduled only after completion
+         * of ChooseFlightMeal and BookDinner activities.
+         * 2. User has choosen to book the flight only: In this case SendConfirmation activity will be scheduled after ChooseFlightMeal activity.
+         * 3. User has choosen to book the hotel only: In this case SendConfirmation activity will be scheduled after BookDinner activity.  
+         */
     }
 }

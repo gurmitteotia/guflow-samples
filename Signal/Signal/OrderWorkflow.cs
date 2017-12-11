@@ -24,11 +24,10 @@ namespace Signal
         [WorkflowEvent(EventName.Signal)]
         public WorkflowAction SignalEvent(WorkflowSignaledEvent @event)
         {
-            if (@event.SignalName == "ItemsArrived" && !Activities.First<ReserveOrder>().IsActive)
+            if (@event.SignalName == "ItemsArrived" && Activity<ReserveOrder>().LastFailedEvent()?.Reason=="NotAvailable")
                 return Jump.ToActivity<ReserveOrder>();
 
             return Ignore(false);
-
         }
     }
 }
