@@ -3,7 +3,9 @@ using Guflow.Worker;
 
 namespace TaskListRouting.Activities
 {
-    [ActivityDescription("1.0")]
+    [ActivityDescription("1.0", DefaultHeartbeatTimeoutInSeconds = 100, DefaultScheduleToCloseTimeoutInSeconds = 50,
+        DefaultScheduleToStartTimeoutInSeconds = 20, DefaultStartToCloseTimeoutInSeconds = 80,
+        DefaultTaskListName = "sometask", DefaultTaskPriority = 10)]
     public class DownloadActivity : Activity
     {
 
@@ -12,7 +14,7 @@ namespace TaskListRouting.Activities
         {
             //simulate downloading of file
             await Task.Delay(10);
-            return new Response() { DownloadedPath = "downloaded path", PollingQueue = }
+            return new Response() {DownloadedPath = "downloaded path", PollingQueue = PollingQueue.Download};
         }
 
 

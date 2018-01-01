@@ -1,32 +1,25 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Guflow.Worker;
-using ThirdParty.BouncyCastle.Asn1;
 
 namespace TaskListRouting.Activities
 {
-    [ActivityDescription("1.0")]
+    [ActivityDescription("1.0", DefaultHeartbeatTimeoutInSeconds = 100, DefaultScheduleToCloseTimeoutInSeconds = 50,
+        DefaultScheduleToStartTimeoutInSeconds = 20, DefaultStartToCloseTimeoutInSeconds = 80,
+        DefaultTaskListName = "sometask", DefaultTaskPriority = 10)]
     public class TranscodeActivity : Activity
     {
         [Execute]
-        public async Task<Response> Execute(Input input)
+        public async Task<Response> Execute(string input)
         {
-            //simulate transcoding
-            Console.WriteLine($"Trancoding input file{input.InputFilePath} to format {input.Format}");
-            await Task.Delay(30);
-            return new Response(){TranscodedFilePath = "transcoded file path"};
+            await Task.Delay(20);
+            return new Response() {TranscodedPath = "ouput file path", PollingQueue = PollingQueue.Download};
         }
 
         public class Response
         {
-            public string TranscodedFilePath;
-        }
+            public string TranscodedPath;
 
-        public class Input
-        {
-            public string Format;
-
-            public string InputFilePath;
+            public string PollingQueue;
         }
     }
 }
