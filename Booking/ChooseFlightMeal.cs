@@ -3,7 +3,9 @@ using Guflow.Worker;
 
 namespace Booking
 {
-    [ActivityDescription("1.0")]
+    [ActivityDescription("1.0", DefaultHeartbeatTimeoutInSeconds = 100, DefaultScheduleToCloseTimeoutInSeconds = 50,
+        DefaultScheduleToStartTimeoutInSeconds = 20, DefaultStartToCloseTimeoutInSeconds = 80,
+        DefaultTaskListName = "sometask", DefaultTaskPriority = 10)]
     public class ChooseFlightMeal : Activity
     {
         [ActivityMethod]

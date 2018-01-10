@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
-using Guflow.Decider;
 using Guflow.Worker;
 
 namespace RecurrentScheduling
 {
-    [WorkflowDescription("1.0")]
+    [ActivityDescription("1.0", DefaultHeartbeatTimeoutInSeconds = 100, DefaultScheduleToCloseTimeoutInSeconds = 50,
+        DefaultScheduleToStartTimeoutInSeconds = 20, DefaultStartToCloseTimeoutInSeconds = 80,
+        DefaultTaskListName = "sometask", DefaultTaskPriority = 10)]
     public class ProcessLog : Activity
     {
         [ActivityMethod]
