@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking", "Booking\Booking.csproj", "{165FB89F-0116-4E0A-BC3B-5CE82134B835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancellationSupport", "CancellationSupport\CancellationSupport.csproj", "{BE96BE7B-0C7F-4BB5-B7CF-7B9A04E78DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyWorkflow", "EmptyWorkflow\EmptyWorkflow.csproj", "{A05A6CA8-431E-4245-A06C-B80AF044E027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecurrentScheduling", "RecurrentScheduling\RecurrentScheduling.csproj", "{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signal", "Signal\Signal.csproj", "{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListRouting", "TaskListRouting\TaskListRouting.csproj", "{76C71639-141E-4725-8250-70AD3125E55A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{165FB89F-0116-4E0A-BC3B-5CE82134B835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165FB89F-0116-4E0A-BC3B-5CE82134B835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165FB89F-0116-4E0A-BC3B-5CE82134B835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165FB89F-0116-4E0A-BC3B-5CE82134B835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE96BE7B-0C7F-4BB5-B7CF-7B9A04E78DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE96BE7B-0C7F-4BB5-B7CF-7B9A04E78DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE96BE7B-0C7F-4BB5-B7CF-7B9A04E78DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE96BE7B-0C7F-4BB5-B7CF-7B9A04E78DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A05A6CA8-431E-4245-A06C-B80AF044E027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A05A6CA8-431E-4245-A06C-B80AF044E027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A05A6CA8-431E-4245-A06C-B80AF044E027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A05A6CA8-431E-4245-A06C-B80AF044E027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76C71639-141E-4725-8250-70AD3125E55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76C71639-141E-4725-8250-70AD3125E55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76C71639-141E-4725-8250-70AD3125E55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76C71639-141E-4725-8250-70AD3125E55A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC098C71-8ECC-40F2-B583-ECD853E81598}
+	EndGlobalSection
+EndGlobal
