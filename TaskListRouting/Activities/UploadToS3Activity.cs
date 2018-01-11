@@ -20,7 +20,5 @@ namespace TaskListRouting.Activities
         {
             public string FilePath;
         }
-
-      
     }
 }

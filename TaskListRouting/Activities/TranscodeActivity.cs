@@ -12,14 +12,14 @@ namespace TaskListRouting.Activities
         public async Task<Response> Execute(string input)
         {
             await Task.Delay(20);
-            return new Response() {TranscodedPath = "ouput file path", PollingQueue = PollingQueue.Download};
+            return new Response() {TranscodedPath = "ouput file path"};
         }
 
         public class Response
         {
             public string TranscodedPath;
-
-            public string PollingQueue;
         }
+
+        
     }
 }

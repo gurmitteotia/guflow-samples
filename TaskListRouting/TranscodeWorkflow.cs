@@ -1,4 +1,5 @@
-﻿using Guflow.Decider;
+﻿using System;
+using Guflow.Decider;
 using TaskListRouting.Activities;
 
 namespace TaskListRouting
@@ -10,19 +11,24 @@ namespace TaskListRouting
     {
         public TranscodeWorkflow()
         {
-            ScheduleActivity<DownloadActivity>();
+            ScheduleActivity<DownloadActivity>()
+                .OnFailure(e => Reschedule(e).After(TimeSpan.FromSeconds(2)).UpTo(Limit.Count(4)));
 
-            ScheduleActivity<TranscodeActivity>().AfterActivity<DownloadActivity>()
+            ScheduleActivity<TranscodeActivity>()
+                .AfterActivity<DownloadActivity>()
                 .OnTaskList(a => ParentResult(a).PollingQueue)
-                .WithInput(a => ParentResult(a).DownloadedPath);
+                .WithInput(a => new {InputFile = ParentResult(a).DownloadedFile, Format = "MP4"})
+                .OnTimedout(_ => RestartWorkflow());
 
-            ScheduleActivity<UploadToS3Activity>().AfterActivity<TranscodeActivity>()
-                .OnTaskList(a => ParentResult(a).PollingQueue)
-                .WithInput(a => ParentResult(a).TranscodedPath);
+            ScheduleActivity<UploadToS3Activity>()
+                .AfterActivity<TranscodeActivity>()
+                .OnTaskList(_ => Activity<DownloadActivity>().Result().PollingQueue)
+                .WithInput(a => new {InputFile = ParentResult(a).Result().TranscodedFile})
+                .OnTimedout(_ => RestartWorkflow());
+                
 
-            ScheduleActivity<SendConfirmationActivity>().AfterActivity<UploadToS3Activity>();
+           ScheduleActivity<SendConfirmationActivity>().AfterActivity<UploadToS3Activity>();
         }
-
 
         private static dynamic ParentResult(IActivityItem a) => a.ParentActivity().Result();
     }
