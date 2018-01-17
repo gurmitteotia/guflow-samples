@@ -38,8 +38,8 @@
     <Reference Include="AWSSDK.SimpleWorkflow, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SimpleWorkflow.3.3.0.23\lib\net45\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
-    <Reference Include="Guflow, Version=1.0.42.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guflow.1.0.42\lib\net45\Guflow.dll</HintPath>
+    <Reference Include="Guflow, Version=1.0.53.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guflow.1.0.53\lib\net45\Guflow.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -54,10 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities.cs" />
+    <Compile Include="ShipOrder.cs" />
+    <Compile Include="ChargeCustomer.cs" />
     <Compile Include="OrderWorkflow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReserveOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

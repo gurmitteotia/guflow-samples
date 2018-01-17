@@ -6,7 +6,7 @@ namespace CancellationSupport
     //This will will support the cancellation. On receiving the cancel request it will send the cancel request to all 
     //active activities and try to cancel them.
     [WorkflowDescription("1.0", DefaultChildPolicy = ChildPolicy.Terminate,
-        DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "tasklist",
+        DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "dtasklist",
         DefaultTaskStartToCloseTimeoutInSeconds = 20)]
     public class OrderWorkflow : Workflow
     {

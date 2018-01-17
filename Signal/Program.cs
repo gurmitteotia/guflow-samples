@@ -17,16 +17,16 @@ namespace Signal
 
         private static async Task MainAsync(string[]args)
         {
-            var domain = new Domain("Test", RegionEndpoint.EUWest1);
+            var domain = new Domain("learning", RegionEndpoint.EUWest2);
             await domain.RegisterWorkflowAsync<OrderWorkflow>();
             await domain.RegisterActivityAsync<ReserveOrder>();
             await domain.RegisterActivityAsync<ChargeCustomer>();
             await domain.RegisterActivityAsync<ShipOrder>();
-            using (var hostedActivities = domain.Host(new Type[] { typeof(ReserveOrder), typeof(ChargeCustomer), typeof(ShipOrder) }))
+            using (var hostedActivities = domain.Host(new[] { typeof(ReserveOrder), typeof(ChargeCustomer), typeof(ShipOrder) }))
             using (var hostedWorkflows = domain.Host(new[] {new OrderWorkflow()}))
             {
-                hostedActivities.StartExecution(new TaskList("activity-queue"));
-                hostedWorkflows.StartExecution(new TaskList("workflow-queue"));
+                hostedActivities.StartExecution();
+                hostedWorkflows.StartExecution();
                 Console.WriteLine("Press any key to terminate");
                 Console.ReadKey();
             }

@@ -4,7 +4,9 @@ namespace Signal
 {
     //This workflow will be paused when ReserveOrder is failed with NotAvaiable status
     //and will resume scheduling when signal will indicate that items are available.
-    [WorkflowDescription("1.0")]
+    [WorkflowDescription("1.0", DefaultChildPolicy = ChildPolicy.Terminate,
+        DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "tasklist",
+        DefaultTaskStartToCloseTimeoutInSeconds = 20)]
     public class OrderWorkflow : Workflow
     {
         public OrderWorkflow()

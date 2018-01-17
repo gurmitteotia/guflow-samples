@@ -17,7 +17,7 @@ namespace Booking
 
         private static async Task MainAsync(string[] args)
         {
-            var domain = new Domain("test", RegionEndpoint.EUWest1);
+            var domain = new Domain("learning", RegionEndpoint.EUWest2);
             await domain.RegisterAsync(10, "test guflow");
             await domain.RegisterWorkflowAsync<BookingWorkflow>();
             var activities = new[]

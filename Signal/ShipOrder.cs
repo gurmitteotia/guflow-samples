@@ -1,23 +1,20 @@
 ﻿using System.Threading.Tasks;
+using Guflow.Decider;
 using Guflow.Worker;
 
-namespace TaskListRouting.Activities
+namespace Signal
 {
     [ActivityDescription("1.0", DefaultHeartbeatTimeoutInSeconds = 100, DefaultScheduleToCloseTimeoutInSeconds = 50,
         DefaultScheduleToStartTimeoutInSeconds = 20, DefaultStartToCloseTimeoutInSeconds = 80,
         DefaultTaskListName = "sometask", DefaultTaskPriority = 10)]
-    public class TranscodeActivity : Activity
+    public class ShipOrder : Activity
     {
         [ActivityMethod]
-        public async Task<Response> Execute(string input)
+        public async Task<string> Ship(string input)
         {
-            await Task.Delay(20);
-            return new Response() { TranscodedFile = "ouput file path"};
-        }
-
-        public class Response
-        {
-            public string TranscodedFile;
+            //reserve
+            await Task.Delay(0);
+            return "shipped";
         }
     }
 }

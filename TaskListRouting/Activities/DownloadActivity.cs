@@ -14,12 +14,12 @@ namespace TaskListRouting.Activities
         {
             //simulate downloading of file
             await Task.Delay(10);
-            return new Response() {DownloadedPath = "downloaded path", PollingQueue = PollingQueue.Download};
+            return new Response() { DownloadedFile = "downloaded path", PollingQueue = PollingQueue.Download};
         }
 
         public class Response
         {
-            public string DownloadedPath;
+            public string DownloadedFile;
             public string PollingQueue;
         }
 

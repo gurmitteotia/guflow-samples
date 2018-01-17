@@ -23,7 +23,7 @@ namespace TaskListRouting
             ScheduleActivity<UploadToS3Activity>()
                 .AfterActivity<TranscodeActivity>()
                 .OnTaskList(_ => Activity<DownloadActivity>().Result().PollingQueue)
-                .WithInput(a => new {InputFile = ParentResult(a).Result().TranscodedFile})
+                .WithInput(a => new {InputFile = ParentResult(a).TranscodedFile})
                 .OnTimedout(_ => RestartWorkflow());
                 
 

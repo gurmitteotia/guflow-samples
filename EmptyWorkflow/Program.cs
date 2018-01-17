@@ -14,7 +14,7 @@ namespace EmptyWorkflow
 
         private static async Task MainAsync(string[]args)
         {
-            var domain = new Domain("Test", RegionEndpoint.EUWest1);
+            var domain = new Domain("learning", RegionEndpoint.EUWest2);
             await domain.RegisterAsync(1);
             await domain.RegisterWorkflowAsync<EmptyWorkflow>();
 
