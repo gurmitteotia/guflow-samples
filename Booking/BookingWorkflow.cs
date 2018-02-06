@@ -7,7 +7,7 @@ namespace Booking
            
      Following diagram shows the arrangement in BookingWorkflow
      
-        BookFlight      ChooseFlightMeal
+        BookFlight          BookHotel
             |                   |
             |                   |
             v                   v
