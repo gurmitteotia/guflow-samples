@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8F64A1C-48CA-459C-B77E-10426D05E4E9}</ProjectGuid>
+    <ProjectGuid>{014A1EA6-6985-4021-B8BB-536B1854B4C5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>VideoTranscoding</RootNamespace>
-    <AssemblyName>VideoTranscoding</AssemblyName>
+    <RootNamespace>Booking_Lambda</RootNamespace>
+    <AssemblyName>Booking_Lambda</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,14 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\DownloadActivity.cs" />
-    <Compile Include="Activities\PollingQueue.cs" />
-    <Compile Include="Activities\SendConfirmationActivity.cs" />
-    <Compile Include="Activities\TranscodeActivity.cs" />
-    <Compile Include="Activities\UploadToS3Activity.cs" />
+    <Compile Include="BookingWorkflow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TranscodeWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
