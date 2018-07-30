@@ -39,8 +39,8 @@
     <Reference Include="AWSSDK.SimpleWorkflow, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SimpleWorkflow.3.3.0.34\lib\net45\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
-    <Reference Include="Guflow, Version=1.0.62.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guflow.1.0.62\lib\net45\Guflow.dll</HintPath>
+    <Reference Include="Guflow, Version=1.0.64.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guflow.1.0.64\lib\net45\Guflow.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>

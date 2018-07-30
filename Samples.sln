@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking", "Booking\Booking.csproj", "{165FB89F-0116-4E0A-BC3B-5CE82134B835}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTranscoding", "VideoTranscoding\VideoTranscoding.csproj", "{D8F64A1C-48CA-459C-B77E-10426D05E4E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking_Lambda", "Booking_Lambda\Booking_Lambda.csproj", "{014A1EA6-6985-4021-B8BB-536B1854B4C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoopSupport", "LoopSupport\LoopSupport.csproj", "{803371D5-7D10-46E8-92D3-024A81B31A9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{014A1EA6-6985-4021-B8BB-536B1854B4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{014A1EA6-6985-4021-B8BB-536B1854B4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{014A1EA6-6985-4021-B8BB-536B1854B4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

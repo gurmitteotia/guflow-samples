@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8F64A1C-48CA-459C-B77E-10426D05E4E9}</ProjectGuid>
+    <ProjectGuid>{803371D5-7D10-46E8-92D3-024A81B31A9F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>VideoTranscoding</RootNamespace>
-    <AssemblyName>VideoTranscoding</AssemblyName>
+    <RootNamespace>LoopSupport</RootNamespace>
+    <AssemblyName>LoopSupport</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,18 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\DownloadActivity.cs" />
-    <Compile Include="Activities\PollingQueue.cs" />
-    <Compile Include="Activities\SendConfirmationActivity.cs" />
-    <Compile Include="Activities\TranscodeActivity.cs" />
-    <Compile Include="Activities\UploadToS3Activity.cs" />
+    <Compile Include="ProcessLogWorkflow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TranscodeWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.SimpleWorkflow.3.3.0.34\analyzers\dotnet\cs\AWSSDK.SimpleWorkflow.CodeAnalysis.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,7 +31,7 @@ namespace VideoTranscoding
         public TranscodeWorkflow()
         {
             ScheduleActivity<DownloadActivity>()
-                .OnFailure(e => Reschedule(e).After(TimeSpan.FromSeconds(2)).UpTo(Limit.Count(4)));
+                .OnFailure(e => Reschedule(e).After(TimeSpan.FromSeconds(2)).UpTo(times:4));
 
             ScheduleActivity<TranscodeActivity>("MPEG")
                 .AfterActivity<DownloadActivity>()
