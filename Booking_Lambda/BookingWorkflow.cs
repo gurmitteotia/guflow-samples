@@ -24,6 +24,7 @@ namespace Booking_Lambda
      *
      *
      */
+    [WorkflowDescription("1.0", DefaultLambdaRole = "Provide your lambda role")]
     public class BookingWorkflow : Workflow
     {
         public BookingWorkflow()
@@ -36,7 +37,7 @@ namespace Booking_Lambda
 
             ScheduleLambda("ChargeCustomer").AfterLambda("ChoosSeat").AfterLambda("BookDinner");
 
-            ScheduleLambda("SendEmail").AfterLambda("ChargeCustomer");
+            ScheduleLambda("SendEmail").AfterLambda("ChargeCustomer").WithInput(_ => new {Success = true});
         }
 
         [WorkflowEvent(EventName.WorkflowStarted)]

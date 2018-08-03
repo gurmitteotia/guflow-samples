@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}</ProjectGuid>
+    <ProjectGuid>{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RecurrentScheduling</RootNamespace>
-    <AssemblyName>RecurrentScheduling</AssemblyName>
+    <RootNamespace>Iterator</RootNamespace>
+    <AssemblyName>Iterator</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,16 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.3.24.4\lib\net45\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Core.3.3.24.4\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.SimpleWorkflow.3.3.0.34\lib\net45\AWSSDK.SimpleWorkflow.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.34\lib\net45\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
     <Reference Include="Guflow, Version=1.0.68.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guflow.1.0.68\lib\net45\Guflow.dll</HintPath>
+      <HintPath>..\..\packages\Guflow.1.0.68\lib\net45\Guflow.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,9 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomRetryLogicWorkflow.cs" />
-    <Compile Include="PeriodicWorkflow.cs" />
-    <Compile Include="ProcessLog.cs" />
     <Compile Include="ProcessLogWorkflow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +61,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.34\analyzers\dotnet\cs\AWSSDK.SimpleWorkflow.CodeAnalysis.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
