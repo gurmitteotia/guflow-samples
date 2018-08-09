@@ -11,17 +11,17 @@ namespace LoopSupport
     {
         public ProcessLogWorkflow()
         {
-            ScheduleLambda("ProcessLog").OnFailure(e => Reschedule(e).After(TimeSpan.FromSeconds(5)));
+            ScheduleLambda("ProcessLog");
 
             ScheduleLambda("UpdateMatrices")
                 .AfterLambda("ProcessLog")
                 .WithInput(l => l.ParentLambda().Result().Metrices)
-                .OnCompletion(JumptToStart);
+                .OnCompletion(JumptToProcessLog);
 
             ScheduleAction(_ => RestartWorkflow()).AfterLambda("UpdateMetrices");
         }
 
-        private WorkflowAction JumptToStart(LambdaCompletedEvent @event)
+        private WorkflowAction JumptToProcessLog(LambdaCompletedEvent @event)
         {
             return LatestEventId > 20000 ? Continue(@event) : Jump.ToLambda("ProcessLog");
         }
