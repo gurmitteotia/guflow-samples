@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Amazon;
+using Amazon.Runtime;
+using Amazon.SimpleWorkflow;
 using Guflow;
 
 namespace Booking
@@ -17,7 +16,9 @@ namespace Booking
 
         private static async Task MainAsync(string[] args)
         {
-            var domain = new Domain("learning", RegionEndpoint.EUWest2);
+            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("secrete id",
+                "secret"), RegionEndpoint.EUWest2);
+            var domain = new Domain("GuflowTestDomain", client);
             await domain.RegisterAsync(10, "test guflow");
             await domain.RegisterWorkflowAsync<BookingWorkflow>();
             var activities = new[]
