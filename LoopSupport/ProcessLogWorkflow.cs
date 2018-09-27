@@ -18,7 +18,7 @@ namespace LoopSupport
                 .WithInput(l => l.ParentLambda().Result().Metrices)
                 .OnCompletion(JumptToProcessLog);
 
-            ScheduleAction(_ => RestartWorkflow()).AfterLambda("UpdateMetrices");
+            ScheduleAction(_ => RestartWorkflow()).AfterLambda("UpdateMatrices");
         }
 
         private WorkflowAction JumptToProcessLog(LambdaCompletedEvent @event)
