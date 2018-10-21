@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\guflow\Guflow\Guflow.csproj" />
+    <PackageReference Include="Guflow" Version="1.2.7" />
   </ItemGroup>
 
 </Project>

@@ -17,8 +17,7 @@ namespace ChildWorkflow
 
         private static async Task MainAsync(string[] args)
         {
-            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("access key",
-                "secrete key"), RegionEndpoint.EUWest2);
+            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("access key","secret key"), RegionEndpoint.EUWest2);
             var domain = new Domain("GuflowTestDomain", client);
             await domain.RegisterAsync(10, "test guflow");
             await domain.RegisterWorkflowAsync<ParentWorkflow>();
