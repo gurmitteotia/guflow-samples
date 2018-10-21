@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Guflow.Decider;
+using Guflow.Worker;
 
 namespace ChildWorkflow
 {
@@ -18,8 +19,6 @@ namespace ChildWorkflow
         [WorkflowEvent(EventName.Signal)]
         public WorkflowAction OnSignal(WorkflowSignaledEvent @event)
         {
-            var kidsPlayWorkflow = ChildWorkflow<KidPlayWorkflow>();
-
             if (@event.SignalName == "Hello kid")
             {
                 return Signal("Hello parent", "").ReplyTo(@event);

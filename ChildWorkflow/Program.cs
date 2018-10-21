@@ -17,8 +17,8 @@ namespace ChildWorkflow
 
         private static async Task MainAsync(string[] args)
         {
-            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("secrete id",
-                "secret"), RegionEndpoint.EUWest2);
+            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("access key",
+                "secrete key"), RegionEndpoint.EUWest2);
             var domain = new Domain("GuflowTestDomain", client);
             await domain.RegisterAsync(10, "test guflow");
             await domain.RegisterWorkflowAsync<ParentWorkflow>();
@@ -29,12 +29,13 @@ namespace ChildWorkflow
             {
                 await domain.RegisterActivityAsync(activity);
             }
-            await domain.RegisterActivityAsync<PlayOnSwing>();
-            await domain.RegisterActivityAsync<PlayOnZipWire>();
-
+            
             using (var workflowHost = domain.Host(new Workflow[] { new ParentWorkflow(), new KidPlayWorkflow() }))
             using (var activityHost = domain.Host(activities))
             {
+                workflowHost.OnError(e=>
+                {
+                    Console.WriteLine(e.Exception); return ErrorAction.Continue;});
                 workflowHost.StartExecution();
                 activityHost.StartExecution();
                 Console.WriteLine("Press a key to terminate");
