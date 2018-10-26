@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Guflow.Decider;
-using Guflow.Worker;
 
 namespace ChildWorkflow
 {
@@ -20,14 +19,11 @@ namespace ChildWorkflow
         public WorkflowAction OnSignal(WorkflowSignaledEvent @event)
         {
             if (@event.SignalName == "Hello kid")
-            {
                 return Signal("Hello parent", "").ReplyTo(@event);
-            }
 
+            //I'm a nice kid I will cancel whichever the activity in progress.
             if (@event.SignalName == "Let us have dinner")
-            {
                 return CancelRequest.For(WorkflowItems.Where(i => i.IsActive));
-            }
 
             //I will ignore rest of the signals
             return Ignore;

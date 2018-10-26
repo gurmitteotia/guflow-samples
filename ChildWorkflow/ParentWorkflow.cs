@@ -1,4 +1,5 @@
-﻿using Guflow.Decider;
+﻿using System.Linq;
+using Guflow.Decider;
 
 namespace ChildWorkflow
 {
@@ -18,22 +19,17 @@ namespace ChildWorkflow
             var kidsPlayWorkflow = ChildWorkflow<KidPlayWorkflow>();
 
             if (@event.SignalName == "Wife says: come for dinner")
-            {
                 return kidsPlayWorkflow.IsActive
                     ? Signal("Hello kid", "").ForChildWorkflow<KidPlayWorkflow>()
                     : CompleteWorkflow("Okay coming");
-            }
-
+        
             if (@event.SignalName == "Hello parent")
-            {
                 return kidsPlayWorkflow.IsActive
                     ? Signal("Let us have dinner", "").ForChildWorkflow<KidPlayWorkflow>()
                     : CompleteWorkflow("Okay coming");
-            }
 
             //I will ignore rest of the signals
             return Ignore;
-
         }
     }
 }

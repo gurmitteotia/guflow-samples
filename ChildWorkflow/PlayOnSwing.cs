@@ -11,7 +11,6 @@ namespace ChildWorkflow
     [EnableHeartbeat(IntervalInMilliSeconds = 1000)]
     public class PlayOnSwing : Activity
     {
-       
         [ActivityMethod]
         public async Task<string> Execute(CancellationToken token)
         {
