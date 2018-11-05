@@ -13,23 +13,18 @@ namespace ChildWorkflow
             ScheduleChildWorkflow<KidPlayWorkflow>();
         }
 
-        [WorkflowEvent(EventName.Signal)]
-        public WorkflowAction OnSignal(WorkflowSignaledEvent @event)
-        {
-            var kidsPlayWorkflow = ChildWorkflow<KidPlayWorkflow>();
+        //In this case signal name can't be written as method name.
+        [Signal(Name = "Come for dinner")]
+        public WorkflowAction OnSignalFromHome()
+           =>   ChildWorkflow<KidPlayWorkflow>().IsActive
+                ? Signal("Hello kid", "").ForChildWorkflow<KidPlayWorkflow>()
+                : CompleteWorkflow("okay coming");
 
-            if (@event.SignalName == "Wife says: come for dinner")
-                return kidsPlayWorkflow.IsActive
-                    ? Signal("Hello kid", "").ForChildWorkflow<KidPlayWorkflow>()
-                    : CompleteWorkflow("Okay coming");
-        
-            if (@event.SignalName == "Hello parent")
-                return kidsPlayWorkflow.IsActive
-                    ? Signal("Let us have dinner", "").ForChildWorkflow<KidPlayWorkflow>()
-                    : CompleteWorkflow("Okay coming");
-
-            //I will ignore rest of the signals
-            return Ignore;
-        }
+        //In this case signal name will be matched with method name.
+        [Signal]
+        public WorkflowAction HelloParent()
+            => ChildWorkflow<KidPlayWorkflow>().IsActive
+                ? Signal("Let us have dinner", "").ForChildWorkflow<KidPlayWorkflow>()
+                : CompleteWorkflow("okay coming");
     }
 }

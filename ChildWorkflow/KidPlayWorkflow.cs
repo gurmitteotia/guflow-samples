@@ -15,12 +15,14 @@ namespace ChildWorkflow
             ScheduleActivity<PlayOnZipWire>().AfterActivity<PlayOnSwing>();
         }
 
+        [Signal(Name = "Hello kid")]
+        public WorkflowAction HelloKidSignalAction(WorkflowSignaledEvent @event)
+            => Signal("HelloParent", "").ReplyTo(@event);
+
+        //You can also handle signal using generic event handler.
         [WorkflowEvent(EventName.Signal)]
         public WorkflowAction OnSignal(WorkflowSignaledEvent @event)
         {
-            if (@event.SignalName == "Hello kid")
-                return Signal("Hello parent", "").ReplyTo(@event);
-
             //I'm a nice kid I will cancel whichever the activity in progress.
             if (@event.SignalName == "Let us have dinner")
                 return CancelRequest.For(WorkflowItems.Where(i => i.IsActive));
