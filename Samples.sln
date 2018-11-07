@@ -28,16 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{2D04
 		FlowFramework\Booking\Readme.txt = FlowFramework\Booking\Readme.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cron", "Cron", "{5B0FF2B5-2934-48B9-870A-14FF18ACA439}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\Cron\ReadMe.txt = FlowFramework\Cron\ReadMe.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CronWithRetry", "CronWithRetry", "{C3B02951-6F51-41E3-B430-76131C795922}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\CronWithRetry\Readme.txt = FlowFramework\CronWithRetry\Readme.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileProcessing", "FileProcessing", "{57A5B1D9-8FF6-42B9-8C66-6F6BF6114301}"
 	ProjectSection(SolutionItems) = preProject
 		FlowFramework\FileProcessing\Readme.txt = FlowFramework\FileProcessing\Readme.txt
@@ -53,16 +43,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SplitMerge", "SplitMerge", 
 		FlowFramework\SplitMerge\Readme.txt = FlowFramework\SplitMerge\Readme.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PeriodicWorkflow", "PeriodicWorkflow", "{780C3C08-95BE-4EAA-8D7C-1792F4103E31}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\PeriodicWorkflow\Readme.txt = FlowFramework\PeriodicWorkflow\Readme.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StepFunctions", "StepFunctions", "{5022B23F-A6A7-4F85-90F2-90B3283A2465}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator", "StepFunctions\Iterator\Iterator.csproj", "{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildWorkflow", "ChildWorkflow\ChildWorkflow.csproj", "{20489768-140E-430A-8B62-B2EF3EB6C730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildWorkflow", "ChildWorkflow\ChildWorkflow.csproj", "{20489768-140E-430A-8B62-B2EF3EB6C730}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,12 +105,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2D0470C0-7D31-4043-AC74-8812879A55DA} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{5B0FF2B5-2934-48B9-870A-14FF18ACA439} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{C3B02951-6F51-41E3-B430-76131C795922} = {4415117C-0D10-4150-8715-3502F8C458B4}
 		{57A5B1D9-8FF6-42B9-8C66-6F6BF6114301} = {4415117C-0D10-4150-8715-3502F8C458B4}
 		{9835C698-75FD-48F3-8DB9-315F540C3BAA} = {4415117C-0D10-4150-8715-3502F8C458B4}
 		{CAC68A00-F06D-49F4-9A4F-B7E768C71D1D} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{780C3C08-95BE-4EAA-8D7C-1792F4103E31} = {4415117C-0D10-4150-8715-3502F8C458B4}
 		{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82} = {5022B23F-A6A7-4F85-90F2-90B3283A2465}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
