@@ -15,7 +15,7 @@ namespace ChildWorkflow
             ScheduleActivity<PlayOnZipWire>().AfterActivity<PlayOnSwing>();
         }
 
-        [Signal(Name = "Hello kid")]
+        [SignalEvent(Name = "Hello kid")]
         public WorkflowAction HelloKidSignalAction(WorkflowSignaledEvent @event)
             => Signal("HelloParent", "").ReplyTo(@event);
 

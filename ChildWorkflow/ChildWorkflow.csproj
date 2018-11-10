@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Guflow" Version="1.2.12" />
+    <PackageReference Include="Guflow" Version="1.2.13" />
   </ItemGroup>
 
 </Project>

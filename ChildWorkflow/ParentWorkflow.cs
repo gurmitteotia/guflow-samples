@@ -14,14 +14,14 @@ namespace ChildWorkflow
         }
 
         //In this case signal name can't be written as method name.
-        [Signal(Name = "Come for dinner")]
+        [SignalEvent(Name = "Come for dinner")]
         public WorkflowAction OnSignalFromHome()
            =>   ChildWorkflow<KidPlayWorkflow>().IsActive
                 ? Signal("Hello kid", "").ForChildWorkflow<KidPlayWorkflow>()
                 : CompleteWorkflow("okay coming");
 
         //In this case signal name will be matched with method name.
-        [Signal]
+        [SignalEvent]
         public WorkflowAction HelloParent()
             => ChildWorkflow<KidPlayWorkflow>().IsActive
                 ? Signal("Let us have dinner", "").ForChildWorkflow<KidPlayWorkflow>()
