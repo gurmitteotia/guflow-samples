@@ -6,6 +6,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Guflow" Version="1.2.13" />
+    <PackageReference Include="Guflow" Version="1.2.15" />
   </ItemGroup>
 </Project>

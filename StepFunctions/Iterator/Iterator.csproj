@@ -38,8 +38,8 @@
     <Reference Include="AWSSDK.SimpleWorkflow, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.45\lib\net45\AWSSDK.SimpleWorkflow.dll</HintPath>
     </Reference>
-    <Reference Include="Guflow, Version=1.2.13.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Guflow.1.2.13\lib\netstandard1.3\Guflow.dll</HintPath>
+    <Reference Include="Guflow, Version=1.2.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Guflow.1.2.15\lib\netstandard1.3\Guflow.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
