@@ -1,7 +1,7 @@
 ﻿This example shows how you can recursively execute the "ProcessLogWorkflow" till eternity and that too efficiently.
 
 In Guflow you can recursively execute the workflow using two approches:
- * Implement the recrusion in same workflow as show in [this](https://github.com/gurmitteotia/guflow-samples/tree/master/LoopSupport) example.
+ * Implement the recursion in same workflow as show in [this](https://github.com/gurmitteotia/guflow-samples/tree/master/LoopSupport) example.
  * Split the "recursive" logic in to seperate workflow as is being done in this example.
 
   
