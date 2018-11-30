@@ -23,12 +23,11 @@ namespace Signal
             return e.Reason == "NotAvailable" ? Ignore : DefaultAction(e);
         }
 
-        [WorkflowEvent(EventName.Signal)]
-        public WorkflowAction SignalEvent(WorkflowSignaledEvent @event)
+        [SignalEvent]
+        public WorkflowAction ItemsArrived()
         {
-            if (@event.SignalName == "ItemsArrived" && Activity<ReserveOrder>().LastFailedEvent()?.Reason=="NotAvailable")
+            if (Activity<ReserveOrder>().LastFailedEvent()?.Reason=="NotAvailable")
                 return Jump.ToActivity<ReserveOrder>();
-
             return Ignore;
         }
     }
