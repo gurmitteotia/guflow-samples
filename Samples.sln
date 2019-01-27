@@ -53,6 +53,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimerReset", "TimerReset\Ti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursionTillEternity", "RecursionTillEternity\RecursionTillEternity.csproj", "{AFEB5A80-EE2D-49A5-B2FD-36B86F63B901}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessManualApproval", "ServerlessManualApproval\ServerlessManualApproval.csproj", "{D5CAB8D7-1C8E-4018-BEE3-525CA8B5BE1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{AFEB5A80-EE2D-49A5-B2FD-36B86F63B901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFEB5A80-EE2D-49A5-B2FD-36B86F63B901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFEB5A80-EE2D-49A5-B2FD-36B86F63B901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5CAB8D7-1C8E-4018-BEE3-525CA8B5BE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5CAB8D7-1C8E-4018-BEE3-525CA8B5BE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5CAB8D7-1C8E-4018-BEE3-525CA8B5BE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CAB8D7-1C8E-4018-BEE3-525CA8B5BE1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

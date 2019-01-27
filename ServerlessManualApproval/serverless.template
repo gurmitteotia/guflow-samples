@@ -1,0 +1,214 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Transform" : "AWS::Serverless-2016-10-31",
+  "Description" : "An AWS Serverless Application.",
+
+  "Resources" : {
+
+
+    "ApproveExpenses" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.ExpenseLambdaFunctions::ApproveExpenses",
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "SendForApproval",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+    "SendToAccount" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.ExpenseLambdaFunctions::SendToAccount",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+            "MemorySize" : 256,
+			"FunctionName" : "SendToAccount",
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+   "SendBackToEmp" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.ExpenseLambdaFunctions::SendBackToEmp",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "SendBackToEmp",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+
+	
+    "PromoteEmployee" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PromotionFunctions::PromoteEmployee",
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "PromoteEmployee",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+    "Promoted" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PromotionFunctions::Promoted",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+            "MemorySize" : 256,
+			"FunctionName" : "Promoted",
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+    "SendForReviewToHr" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PromotionFunctions::SendForReviewToHr",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "SendForReviewToHr",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+	"ApplyToCouncil" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PlanningFunctions::ApplyToCouncil",
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "ApplyToCouncil",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+    "ApplyToFireDept" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PlanningFunctions::ApplyToFireDept",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+            "MemorySize" : 256,
+			"FunctionName" : "ApplyToFireDept",
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+    "ApplyToForestDept" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PlanningFunctions::ApplyToForestDept",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "ApplyToForestDept",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+	 "IssuePermit" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PlanningFunctions::IssuePermit",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "IssuePermit",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+	 "RejectPermit" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PlanningFunctions::RejectPermit",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "RejectPermit",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+    "LambdaRole" : {
+        "Type" : "AWS::IAM::Role",
+        "Properties" : {
+            "AssumeRolePolicyDocument" : {
+                "Version" : "2012-10-17",
+                "Statement" : [
+                    {
+                        "Action" : [
+                            "sts:AssumeRole"
+                        ],
+                        "Effect" : "Allow",
+                        "Principal" : {
+                            "Service" : [
+                                "lambda.amazonaws.com"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "ManagedPolicyArns" : [
+                "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            ]
+       }
+    }
+  },
+
+  "Outputs" : {
+  }
+}
