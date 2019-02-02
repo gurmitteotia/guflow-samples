@@ -1,5 +1,5 @@
 
-**Before running these samples: **:
+**Before running these samples:**:
 * Deploy the lambda functions to your AWS account
 * Give access to SWF to invoke lambda functions as described [here](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/lambda-task.html)
 * Update the lambda role name, created in above step, in each workflow.
