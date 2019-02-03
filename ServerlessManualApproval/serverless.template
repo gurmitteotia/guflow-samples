@@ -54,6 +54,21 @@
         }
     },
 
+	 "EscalateExpenses" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.ExpenseLambdaFunctions::EscalateExpenses",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "EscalateExpenses",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
 
 	
     "PromoteEmployee" : {

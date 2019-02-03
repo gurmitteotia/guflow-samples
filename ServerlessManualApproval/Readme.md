@@ -65,3 +65,19 @@ All the workflows in this project uses lambda functions but you can easily repla
 
 ```
 
+1. ExpenseWorkflowWithTimeout: In this example workflow will wait for specific period for the signals. If does not receive the signal with-in given period then it will escalate the expenses.
+
+
+```
+
+						ApproveExpense          
+							  |
+							  |
+							  v
+         |````````````````````|`````````````````|
+    <Accepted>            <Rejected>		<OnTimedout>	
+         |                    |					|
+         |                    |					|
+         v                    v					v
+    SubmitToAccount     SendRejectEmail		EscalateExpenses
+```   

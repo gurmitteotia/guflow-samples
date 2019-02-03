@@ -24,6 +24,11 @@ namespace ServerlessManualApproval
             return "EmpAction";
         }
 
+        public string EscalateExpenses(string input, ILambdaContext context)
+        {
+            return "Escalated";
+        }
+
         public class Input
         {
             public string Id;

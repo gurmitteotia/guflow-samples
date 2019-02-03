@@ -24,8 +24,10 @@ namespace ServerlessManualApproval
             await domain.RegisterWorkflowAsync<ExpenseWorkflow>();
             await domain.RegisterWorkflowAsync<PromotionWorkflow>();
             await domain.RegisterWorkflowAsync<PermitIssueWorkflow>();
+            await domain.RegisterWorkflowAsync<ExpenseWorkflowWithTimeout>();
 
-            using (var workflowHost = domain.Host(new Workflow[] { new ExpenseWorkflow(), new PromotionWorkflow(), new PermitIssueWorkflow() }))
+            using (var workflowHost = domain.Host(new Workflow[] { new ExpenseWorkflow(),
+                new PromotionWorkflow(), new PermitIssueWorkflow(),new ExpenseWorkflowWithTimeout() }))
             {
                 workflowHost.OnError(e =>
                 {
