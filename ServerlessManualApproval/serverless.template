@@ -198,6 +198,37 @@
         }
     },
 
+	 "ConfirmEmail" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.UserActivateFunctions::ConfirmEmail",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "ConfirmEmail",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+	 "ActivateUser" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.UserActivateFunctions::ActivateUser",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "ActivateUser",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
     "LambdaRole" : {
         "Type" : "AWS::IAM::Role",
         "Properties" : {
