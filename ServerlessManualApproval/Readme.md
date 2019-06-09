@@ -45,7 +45,7 @@ All the workflows in this project uses lambda functions but you can easily repla
    
   ```
 
-* **PermitIssueWorkflow:** In this example workflow schedule three lambda functions in parallel and waits for siganls after execution of each lambda function in parallel branches. This example deliveratly schedule the lamdba functions in parallel branches to show you how easily you can create complex dependencies.
+* **PermitIssueWorkflow:** In this example workflow schedule three lambda functions in parallel and waits for the signals after execution of each lambda function in parallel branches. This example schedule the lamdba functions in parallel branches to show you how easily you can create complex dependencies.
 
   ```
        ApplyToCouncil                  ApplyToFireDept              ApplyToForestDept
