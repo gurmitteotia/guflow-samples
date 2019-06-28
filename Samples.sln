@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyWorkflow", "EmptyWorkf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecurrentScheduling", "RecurrentScheduling\RecurrentScheduling.csproj", "{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signal", "Signal\Signal.csproj", "{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListRouting", "TaskListRouting\TaskListRouting.csproj", "{76C71639-141E-4725-8250-70AD3125E55A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoTranscoding", "VideoTranscoding\VideoTranscoding.csproj", "{D8F64A1C-48CA-459C-B77E-10426D05E4E9}"
@@ -77,10 +75,6 @@ Global
 		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{254DC7C4-10CA-472E-AC8F-EF0C775C2FA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC372EA9-1E18-41A0-858C-59A3FF04B8E8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76C71639-141E-4725-8250-70AD3125E55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76C71639-141E-4725-8250-70AD3125E55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76C71639-141E-4725-8250-70AD3125E55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
