@@ -19,32 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking_Lambda", "Booking_L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoopSupport", "LoopSupport\LoopSupport.csproj", "{803371D5-7D10-46E8-92D3-024A81B31A9F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FlowFramework", "FlowFramework", "{4415117C-0D10-4150-8715-3502F8C458B4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{2D0470C0-7D31-4043-AC74-8812879A55DA}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\Booking\Readme.txt = FlowFramework\Booking\Readme.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileProcessing", "FileProcessing", "{57A5B1D9-8FF6-42B9-8C66-6F6BF6114301}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\FileProcessing\Readme.txt = FlowFramework\FileProcessing\Readme.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelloLambda", "HelloLambda", "{9835C698-75FD-48F3-8DB9-315F540C3BAA}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\HelloLambda\Readme.txt = FlowFramework\HelloLambda\Readme.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SplitMerge", "SplitMerge", "{CAC68A00-F06D-49F4-9A4F-B7E768C71D1D}"
-	ProjectSection(SolutionItems) = preProject
-		FlowFramework\SplitMerge\Readme.txt = FlowFramework\SplitMerge\Readme.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StepFunctions", "StepFunctions", "{5022B23F-A6A7-4F85-90F2-90B3283A2465}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator", "StepFunctions\Iterator\Iterator.csproj", "{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildWorkflow", "ChildWorkflow\ChildWorkflow.csproj", "{20489768-140E-430A-8B62-B2EF3EB6C730}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimerReset", "TimerReset\TimerReset.csproj", "{191C0C77-5BA5-4705-9495-01FFB33733F5}"
@@ -91,10 +65,6 @@ Global
 		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{803371D5-7D10-46E8-92D3-024A81B31A9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20489768-140E-430A-8B62-B2EF3EB6C730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20489768-140E-430A-8B62-B2EF3EB6C730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20489768-140E-430A-8B62-B2EF3EB6C730}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -114,13 +84,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{2D0470C0-7D31-4043-AC74-8812879A55DA} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{57A5B1D9-8FF6-42B9-8C66-6F6BF6114301} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{9835C698-75FD-48F3-8DB9-315F540C3BAA} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{CAC68A00-F06D-49F4-9A4F-B7E768C71D1D} = {4415117C-0D10-4150-8715-3502F8C458B4}
-		{96DB3F10-1028-4CDD-BFF2-4C261BD5CD82} = {5022B23F-A6A7-4F85-90F2-90B3283A2465}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC098C71-8ECC-40F2-B583-ECD853E81598}
