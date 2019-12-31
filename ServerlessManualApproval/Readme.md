@@ -9,7 +9,7 @@ Now run this project and it will register the workflows with Amazon SWF. Login t
 
 All the workflows in this project uses lambda functions but you can easily replace lambda function with either activity or child workflow. This project implements following three workflows:
 
-* **ExpenseWorkflow:** In this example after executing the "ApproveExpense" lambda function workflow waits for either "Accepted" or "Rejected" signal and based on the received signal it further schedule the children of "ApproveExpense" lambda function.
+* **[ExpenseWorkflow](Workflows/ExpenseWorkflow.cs):** In this example after executing the "ApproveExpense" lambda function workflow waits for either "Accepted" or "Rejected" signal indefinitely and based on the received signal it further schedule the children of "ApproveExpense" lambda function.
 
   ```
 
@@ -22,10 +22,27 @@ All the workflows in this project uses lambda functions but you can easily repla
          |                    |
          |                    |
          v                    v
-    SubmitToAccount     SendRejectEmail  
-  ```            
+    SubmitToAccount     SendRejectEmail 
+  ```
+  
+* **[ExpenseWorkflowWithTimeout](Workflows/ExpenseWorkflowWithTimeout.cs):** In this example after executing the "ApproveExpense" lambda function workflow waits for either "Accepted" or "Rejected" signal for 2 days.
+
+  ```
+
+              ApproveExpense          
+                  |
+                  |
+                  v
+         |````````````````````|``````````````````````````|
+    <Accepted>            <Rejected>				<Timedout>
+         |                    |							 | 	
+         |                    |							 |
+         v                    v							 v
+    SubmitToAccount     SendRejectEmail             EscalateExpenses
+  ```   
+
             
-* **PromotionWorkflow:** After executing the "PromoteEmployee" lambda function workflow execution is paused and it wait for two siganls- "HRApproved" and "ManagerApproved" to be received to continue to the execution.
+* **[PromotionWorkflow](Workflows/PromotionWorkflow.cs):** After executing the "PromoteEmployee" lambda function workflow execution is paused and it wait for two siganls- "HRApproved" and "ManagerApproved" indefinitely.
 
   ```
 
@@ -45,7 +62,29 @@ All the workflows in this project uses lambda functions but you can easily repla
    
   ```
 
-* **PermitIssueWorkflow:** In this example workflow schedule three lambda functions in parallel and waits for the signals after execution of each lambda function in parallel branches. This example schedule the lamdba functions in parallel branches to show you how easily you can create complex dependencies.
+            
+* **[PromotionWorkflowWithTimeout](Workflows/PromotionWorkflowWithTimeout.cs):** After executing the "PromoteEmployee" lambda function workflow execution is paused and it wait for two siganls- "HRApproved" and "ManagerApproved" for 5 days.
+
+  ```
+
+            PromoteEmployee          
+                  |
+                  |
+                  v
+        WaitForAllSignals("HRApproved", "ManagerApproved")
+                  |
+                  |
+                  v
+      |```````````````````````````|       
+   Promoted						<Timedout>
+      |							  |	
+      |							  | 	
+      v							  v 	
+  SendForReview				Fail workflow
+   
+  ```
+
+* **[PermitIssueWorkflow](Workflows/PermitIssueWorkflow.cs):** In this example workflow schedule three lambda functions in parallel and waits for the signals after execution of each lambda function in parallel branches. This example schedule the lamdba functions in parallel branches to show you how easily you can create complex dependencies.
 
   ```
        ApplyToCouncil                  ApplyToFireDept              ApplyToForestDept
@@ -65,19 +104,25 @@ All the workflows in this project uses lambda functions but you can easily repla
 
   ```
 
-* **ExpenseWorkflowWithTimeout:** In this example workflow will wait for specific period for the signals. If does not receive the signal with-in given period then it will escalate the expenses.
+
+* **[PermitIssueWorkflowWithTimeout][Workflows/PermitIssueWorkflowWithTimeout.cs]:** In this example workflow schedule three lambda functions in parallel and waits for the signals after execution of each lambda function in parallel branches. This example schedule the lamdba functions in parallel branches to show you how easily you can create complex dependencies.
+
+  ```
+       ApplyToCouncil                  ApplyToFireDept              ApplyToForestDept
+            |                                  |                           |
+            |                                  |                           |
+            v                                  v                           v
+  <"CApproved", "CRejected">     <"FApproved", "FRejected">   <"FrApproved", "FrRejected">  
+            |                                  |                           |
+            |                                  |                           |
+            `````````````````````````````````````````````````````````````````````````````````````
+                    |                                       |									|
+               EveryOneApproved                         AnyOneReject						<AnySignalTimedout>	
+                    |                                       |									|	
+                    v                                       v									v
+               IssuePermit                             RejectPermit							Fail workflow
 
 
   ```
 
-			ApproveExpense          
-			      |
-			      |
-			      v
-         |````````````````````|``````````````````````|
-    <Accepted>            <Rejected>		<OnTimedout>	
-         |                    |			     |
-         |                    |			     |
-         v                    v			     v
-    SubmitToAccount     SendRejectEmail		EscalateExpenses
-  ```   
+  

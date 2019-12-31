@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Amazon;
 using Guflow;
+using Guflow.Decider;
 
 namespace LoopSupport
 {
@@ -22,6 +23,10 @@ namespace LoopSupport
                 Console.WriteLine("Press any key to terminate");
                 Console.ReadKey();
             }
+
+            var req = new SignalWorkflowRequest("workflow id", "signal name");
+            req.SignalInput = new {Id = 10, Name = "Ram"};
+            await domain.SignalWorkflowAsync(req);
         }
     }
 }

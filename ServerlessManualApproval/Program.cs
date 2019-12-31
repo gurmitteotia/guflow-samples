@@ -22,13 +22,16 @@ namespace ServerlessManualApproval
             var domain = new Domain("GuflowTestDomain", client);
             await domain.RegisterAsync(10, "test guflow");
             await domain.RegisterWorkflowAsync<ExpenseWorkflow>();
-            await domain.RegisterWorkflowAsync<PromotionWorkflow>();
-            await domain.RegisterWorkflowAsync<PermitIssueWorkflow>();
             await domain.RegisterWorkflowAsync<ExpenseWorkflowWithTimeout>();
+            await domain.RegisterWorkflowAsync<PromotionWorkflow>();
+            await domain.RegisterWorkflowAsync<PromotionWorkflowWithTimeout>();
+            await domain.RegisterWorkflowAsync<PermitIssueWorkflow>();
             await domain.RegisterWorkflowAsync<UserActivateWorkflow>();
+            await domain.RegisterWorkflowAsync<UserActivateWorkflowWithTimeout>();
 
-            using (var workflowHost = domain.Host(new Workflow[] { new ExpenseWorkflow(),
-                new PromotionWorkflow(), new PermitIssueWorkflow(),new ExpenseWorkflowWithTimeout(), new UserActivateWorkflow() }))
+            using (var workflowHost = domain.Host(new Workflow[] { new ExpenseWorkflow(), new ExpenseWorkflowWithTimeout(), 
+                new PromotionWorkflow(), new PromotionWorkflowWithTimeout(),  new PermitIssueWorkflow(), new PermitIssueWorkflowWithTimeout(),
+                new UserActivateWorkflow(), new UserActivateWorkflowWithTimeout()}))
             {
                 workflowHost.OnError(e =>
                 {
