@@ -12,7 +12,7 @@
             "Handler" : "ServerlessManualApproval::ServerlessManualApproval.ExpenseLambdaFunctions::ApproveExpenses",
             "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
             "Runtime" : "dotnetcore2.1",
-			"FunctionName" : "SendForApproval",
+			"FunctionName" : "ApproveExpenses",
             "MemorySize" : 256,
             "Timeout" : 30,
             "Code" : {
@@ -189,6 +189,22 @@
             "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
             "Runtime" : "dotnetcore2.1",
 			"FunctionName" : "RejectPermit",
+            "MemorySize" : 256,
+            "Timeout" : 30,
+            "Code" : {
+                "S3Bucket" : "",
+                "S3Key" : ""
+            }
+        }
+    },
+
+	 "PlanningTimedout" : {
+        "Type" : "AWS::Lambda::Function",
+        "Properties" : {
+            "Handler" : "ServerlessManualApproval::ServerlessManualApproval.PlanningFunctions::PlanningTimedout",            
+            "Role"    : {"Fn::GetAtt" : [ "LambdaRole", "Arn"]},
+            "Runtime" : "dotnetcore2.1",
+			"FunctionName" : "PlanningTimedout",
             "MemorySize" : 256,
             "Timeout" : 30,
             "Code" : {

@@ -9,20 +9,20 @@ namespace ServerlessManualApproval.Workflows
     /// </summary>
     [WorkflowDescription("1.1", DefaultChildPolicy = ChildPolicy.Terminate,
         DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "manualapproval",
-        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = "lambda role")]
+        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = LambdaRole.Name)]
 
     public class PermitIssueWorkflowWithTimeout : Workflow
     {
         public PermitIssueWorkflowWithTimeout()
         {
             ScheduleLambda("ApplyToCouncil").WithInput(_ => new { Id })
-                .OnCompletion(e => e.WaitForAnySignal("CApproved", "CRejected").For(TimeSpan.FromDays(2)));
+                .OnCompletion(e => e.WaitForAnySignal("CApproved", "CRejected").For(TimeSpan.FromSeconds(40)));
 
             ScheduleLambda("ApplyToFireDept").WithInput(_ => new { Id })
-                .OnCompletion(e => e.WaitForAnySignal("FApproved", "FRejected").For(TimeSpan.FromDays(3)));
+                .OnCompletion(e => e.WaitForAnySignal("FApproved", "FRejected").For(TimeSpan.FromSeconds(40)));
 
             ScheduleLambda("ApplyToForestDept").WithInput(_ => new { Id })
-                .OnCompletion(e => e.WaitForAnySignal("FrApproved", "FrRejected").For(TimeSpan.FromDays(4)));
+                .OnCompletion(e => e.WaitForAnySignal("FrApproved", "FrRejected").For(TimeSpan.FromSeconds(40)));
 
             ScheduleLambda("IssuePermit").AfterLambda("ApplyToCouncil").AfterLambda("ApplyToFireDept")
                 .AfterLambda("ApplyToForestDept")
@@ -32,8 +32,7 @@ namespace ServerlessManualApproval.Workflows
                 .AfterLambda("ApplyToForestDept")
                 .When(AnyOneDisagree);
 
-            ScheduleAction(_ => FailWorkflow("Permit Timedout","")).AfterLambda("ApplyToCouncil")
-                .AfterLambda("ApplyToFireDept")
+            ScheduleLambda("PlanningTimedout").AfterLambda("ApplyToCouncil").AfterLambda("ApplyToFireDept")
                 .AfterLambda("ApplyToForestDept")
                 .When(AnyOneTimedout);
 

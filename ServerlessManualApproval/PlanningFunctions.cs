@@ -35,6 +35,11 @@ namespace ServerlessManualApproval
             return "Rejected";
         }
 
+        public string PlanningTimedout(string input, ILambdaContext context)
+        {
+            return "PlanningTimedout";
+        }
+
         public class Input
         {
             public string Id;

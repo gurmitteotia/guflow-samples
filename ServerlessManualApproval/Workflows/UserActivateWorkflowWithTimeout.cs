@@ -9,7 +9,7 @@ namespace ServerlessManualApproval.Workflows
     /// </summary>
     [WorkflowDescription("1.1", DefaultChildPolicy = ChildPolicy.Terminate,
         DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "manualapproval",
-        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = "provide lambda role")]
+        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = LambdaRole.Name)]
     public class UserActivateWorkflowWithTimeout : Workflow
     {
         public UserActivateWorkflowWithTimeout()
@@ -17,7 +17,7 @@ namespace ServerlessManualApproval.Workflows
 
             ScheduleLambda("ConfirmEmail")
                 .WithInput(_ => new { Id })
-                .OnCompletion(e => e.WaitForSignal("EmailConfirmed").For(TimeSpan.FromHours(12)));
+                .OnCompletion(e => e.WaitForSignal("EmailConfirmed").For(TimeSpan.FromSeconds(40)));
 
             ScheduleLambda("ActivateAccount").AfterLambda("ConfirmEmail")
                 .When(_ => Signal("EmailConfirmed").IsTriggered());

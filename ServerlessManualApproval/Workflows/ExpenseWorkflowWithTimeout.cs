@@ -9,7 +9,7 @@ namespace ServerlessManualApproval.Workflows
     /// </summary>
     [WorkflowDescription("1.1", DefaultChildPolicy = ChildPolicy.Terminate,
         DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "manualapproval",
-        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = "provide lambda role")]
+        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = LambdaRole.Name)]
 
     public class ExpenseWorkflowWithTimeout : Workflow
     {
@@ -17,12 +17,12 @@ namespace ServerlessManualApproval.Workflows
         {
             ScheduleLambda("ApproveExpenses")
                 .WithInput(_ => new { Id })
-                .OnCompletion(e => e.WaitForAnySignal("Accepted", "Rejected").For(TimeSpan.FromDays(2)));
+                .OnCompletion(e => e.WaitForAnySignal("Accepted", "Rejected").For(TimeSpan.FromSeconds(40)));
             
             ScheduleLambda("SendToAccount").AfterLambda("ApproveExpenses").When(_ => Signal("Accepted").IsTriggered());
             ScheduleLambda("SendBackToEmp").AfterLambda("ApproveExpenses").When(_ => Signal("Rejected").IsTriggered());
 
-            ScheduleLambda("EscalateExpenses").AfterLambda("ApproveExpense")
+            ScheduleLambda("EscalateExpenses").AfterLambda("ApproveExpenses")
                 .When(_ => AnySignal("Accepted", "Rejected").IsTimedout());
         }
         

@@ -120,7 +120,7 @@ All the workflows in this project uses lambda functions but you can easily repla
                EveryOneApproved                         AnyOneReject						<AnySignalTimedout>	
                     |                                       |									|	
                     v                                       v									v
-               IssuePermit                             RejectPermit							Fail workflow
+               IssuePermit                             RejectPermit							PlanningTimedout
 
 
   ```

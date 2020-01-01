@@ -6,7 +6,7 @@ namespace ServerlessManualApproval.Workflows
 {
     [WorkflowDescription("1.1", DefaultChildPolicy = ChildPolicy.Terminate,
         DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "manualapproval",
-        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = "provide lambda role")]
+        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = LambdaRole.Name)]
 
     public class PromotionWorkflow : Workflow
     {

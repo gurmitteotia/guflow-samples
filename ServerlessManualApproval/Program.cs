@@ -18,7 +18,7 @@ namespace ServerlessManualApproval
 
         private static async Task MainAsync(string[] args)
         {
-            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("key", "secret"), RegionEndpoint.EUWest2);
+            var client = new AmazonSimpleWorkflowClient(new BasicAWSCredentials("provide key", "provide secret key"), RegionEndpoint.EUWest2);
             var domain = new Domain("GuflowTestDomain", client);
             await domain.RegisterAsync(10, "test guflow");
             await domain.RegisterWorkflowAsync<ExpenseWorkflow>();
@@ -26,6 +26,7 @@ namespace ServerlessManualApproval
             await domain.RegisterWorkflowAsync<PromotionWorkflow>();
             await domain.RegisterWorkflowAsync<PromotionWorkflowWithTimeout>();
             await domain.RegisterWorkflowAsync<PermitIssueWorkflow>();
+            await domain.RegisterWorkflowAsync<PermitIssueWorkflowWithTimeout>();
             await domain.RegisterWorkflowAsync<UserActivateWorkflow>();
             await domain.RegisterWorkflowAsync<UserActivateWorkflowWithTimeout>();
 

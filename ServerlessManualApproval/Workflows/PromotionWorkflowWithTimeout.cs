@@ -5,14 +5,14 @@ namespace ServerlessManualApproval.Workflows
 {
     [WorkflowDescription("1.1", DefaultChildPolicy = ChildPolicy.Terminate,
         DefaultExecutionStartToCloseTimeoutInSeconds = 10000, DefaultTaskListName = "manualapproval",
-        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = "provide lambda role")]
+        DefaultTaskStartToCloseTimeoutInSeconds = 20, DefaultLambdaRole = LambdaRole.Name)]
 
     public class PromotionWorkflowWithTimeout : Workflow
     {
         public PromotionWorkflowWithTimeout()
         {
             ScheduleLambda("PromoteEmployee").WithInput(_ => new { Id })
-                .OnCompletion(e => e.WaitForAllSignals("HRApproved", "ManagerApproved").For(TimeSpan.FromDays(5)));
+                .OnCompletion(e => e.WaitForAllSignals("HRApproved", "ManagerApproved").For(TimeSpan.FromSeconds(40)));
 
             ScheduleLambda("Promoted").AfterLambda("PromoteEmployee")
                 .When(_ => AnySignal("HRApproved", "ManagerApproved").IsTriggered());
